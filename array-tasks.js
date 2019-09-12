@@ -5,7 +5,7 @@ let arr = [
     [null, 2, 13, 'afasd', 21]
 ];
 for (let i = 0; i < arr.length; i++) {
-    console.log('*************');
+    console.log('**********');
     console.log(arr[i]);
     for (let j = 0; j < arr[i].length; j++) {
         console.log(arr[i][j]);
