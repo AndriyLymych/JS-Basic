@@ -31,6 +31,7 @@ let users = [
     {name: 'olya', age: 31, status: false},
     {name: 'max', age: 31, status: true}
 ];
+
 for (const user of users) {
     if (user.age > 28 && !user.status){
         console.log(user);
