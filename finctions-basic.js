@@ -8,6 +8,7 @@ function plus(a, b) {
 
 plus(10, 4);
 
+
 function iterator(arr) {
 
     for (let i = 0; i < arr.length; i++) {
