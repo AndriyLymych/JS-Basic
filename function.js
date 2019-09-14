@@ -1,7 +1,6 @@
 //1. приймає три числа та виводить та повертає найменьше.
 function min(a, b, c) {
 
-
     if (typeof a === 'number' && typeof b === 'number' && typeof c === 'number') {
 
         if (a < b && a < c) {
