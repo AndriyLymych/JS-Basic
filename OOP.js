@@ -6,6 +6,7 @@ class Princesses {
     }
 }
 
+
 let Anastasia = new Princesses('Anastasia', 25, 38);
 let Olia = new Princesses('Olia', 22, 35);
 let Katya = new Princesses('Katya', 27, 37);
@@ -319,19 +320,5 @@ console.log(petro.toString());
 
 
 
-let aray=[1,32,34,-4,2,3232 ];
-let temp;
-for (let i = 0; i < aray.length-1; i++) {
-    for (let j = 0; j < aray[i].length-i; j++) {
-        if (aray[j]<aray[j+1]){
-            temp=aray[j];
-            aray[j]=aray[j+1];
-            aray[j+1]=temp
 
-
-        }
-
-    }
-
-}
 
