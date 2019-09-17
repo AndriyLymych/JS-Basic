@@ -90,6 +90,7 @@ function carsPark() {
         {car: 'Mitsubishi', power: 2.5, owner: {name: 'Vicktor', age: 39, exp: 16}, price: 2400, year: 2003},
 
     ];
+    
     let newOwners = [
         {name: 'Yevgen', age: 33, exp: 2},
         {name: 'Petro', age: 29, exp: 6},
