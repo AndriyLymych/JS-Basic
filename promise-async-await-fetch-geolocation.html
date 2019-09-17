@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+
+    </style>
+</head>
+<body>
+<p id="content"></p>
+
+
+</body>
+</html>
+<script>
+    // //Get my position on async-await
+    // async function getPos() {
+    //     await navigator.geolocation.getCurrentPosition(res => {
+    //         console.log(`Long : ${res.coords.longitude}, Lat: ${res.coords.latitude}`)
+    //     })
+    // }
+    //
+    // getPos();
+    //
+    // //Get my position on promises
+    // function cords() {
+    //     return new Promise((resolve) => {
+    //         let cords = navigator.geolocation.getCurrentPosition((res) => {
+    //             resolve(` Lat : ${res.coords.latitude}  Long: ${res.coords.longitude}`)
+    //         })
+    //     })
+    // }
+    //
+    // cords().then(value => {
+    //     console.log(value);
+    //
+    // });
+    //
+    //
+    // //FETCH:
+    //
+    // fetch('https://jsonplaceholder.typicode.com/users').then(value => {
+    //     return value.json()
+    // }).then(value => {
+    //     console.log(value);
+    // });
+    // let app = fetch("https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5");
+    // app.then(value => {
+    //     return value.json()
+    // }).then(value => {
+    //     value.forEach(value => {
+    //
+    //         document.write('<p> Валюта: ' + `${value.ccy}` + ' ' + 'До валюти: ' + `${value.base_ccy}` + ' ' + 'Купити: ' + `${value.buy}` + ' ' + 'Продати: ' + `${value.sale}` + '<br>\</p>')
+    //     })
+    // });
+    let content = document.getElementById('content');
+
+    //Зробити аналог друкарської машинки.
+    // Маємо рандомну стрічку будь якої довжини.
+    // Потрібно зробитифункцію, яка виводить в консоль цю стрічку по букві з зактримкою від 0,1 до 1 секунди. Що б симулювати написання стрічки реальним юзером.
+    // Тобто приймається стрічка і виводиться в консоль з рандомною зактримкою.
+    //
+
+    function type(str, start) {
+        str.split('');
+        if (start < str.length) {
+            setTimeout(() => {
+                content.innerHTML += (str[start]);
+                start++;
+                type(str, start)
+            }, 300);
+
+        }
+
+
+    }
+
+    type('Red Dead Redemption II', 0);
+    // //PROMISES. MY DAY ON ASYNC_AWAIT:
+    //
+    //
+    // function sum(a, b) {
+    //     return new Promise((resolve, reject) => {
+    //         let res = a + b;
+    //         res < 5 ? reject('less 10') : resolve(res)
+    //     })
+    // }
+    //
+    // sum(1, 1).then(value => {
+    //     console.log(value);
+    // }).catch(reason => {
+    //     console.log(reason);
+    // });
+    //
+    //
+    // function cleaning(isClean, reward, blame) {
+    //     return new Promise((resolve, reject) => {
+    //         !isClean ? reject(blame) : resolve(reward)
+    //     })
+    // }
+    //
+    // cleaning(false, '20$', 'Any video games for month!').then(value => {
+    //     console.log(value);
+    // }).catch(reason => {
+    //     console.log(reason);
+    // });
+    //
+    //
+    // function wakeUp(time) {
+    //     return new Promise((resolve, reject) => {
+    //         if (time <= 7) {
+    //             setTimeout(() => {
+    //                 resolve('I wake up');
+    //
+    //             }, 500)
+    //         } else {
+    //             reject('Ohhh...I  oversleep')
+    //         }
+    //
+    //     })
+    //
+    // }
+    //
+    // function goToBathroom() {
+    //     return new Promise(resolve => {
+    //         setTimeout(() => {
+    //             resolve('I go to bathroom')
+    //         }, 1000)
+    //     })
+    // }
+    //
+    // function haveBreakfast() {
+    //     return new Promise(resolve => {
+    //         setTimeout(() => {
+    //             resolve('I have breakfast')
+    //         }, 3000)
+    //     })
+    // }
+    //
+    // function goToWork() {
+    //     return new Promise(resolve => {
+    //         setTimeout(() => {
+    //             resolve('I go to work')
+    //         }, 1000)
+    //     })
+    // }
+    //
+    // function iAmWorking() {
+    //     return new Promise(resolve => {
+    //         setTimeout(() => {
+    //             resolve('I am working')
+    //         }, 500)
+    //     })
+    // }
+    //
+    // function haveLunch(money) {
+    //     return new Promise((resolve, reject) => {
+    //         if (money > 50) {
+    //             setTimeout(() => {
+    //                 resolve('I have lunch')
+    //             }, 7000)
+    //         } else {
+    //             reject('I forgot my money....')
+    //         }
+    //     })
+    // }
+    //
+    // function returnToWork() {
+    //     return new Promise(resolve => {
+    //         setTimeout(() => {
+    //             resolve('I return to work')
+    //         }, 2000)
+    //     })
+    // }
+    //
+    // function goHome() {
+    //     return new Promise(resolve => {
+    //         setTimeout(() => {
+    //             resolve('I go home')
+    //         }, 7000)
+    //     })
+    // }
+    //
+    // function haveSupper() {
+    //     return new Promise(resolve => {
+    //         setTimeout(() => {
+    //             resolve('I have supper')
+    //         }, 1000)
+    //     })
+    // }
+    //
+    // function goToBed() {
+    //     return new Promise(resolve => {
+    //         setTimeout(() => {
+    //             resolve('I go to bed')
+    //         }, 5000)
+    //     })
+    // }
+    //
+    //
+    // // wakeUp(7).then(value => {
+    // //     console.log(value);
+    // //     return goToBathroom()
+    // // }).then(value => {
+    // //     console.log(value);
+    // //     return haveBreakfast()
+    // // }).then(value => {
+    // //     console.log(value);
+    // //     return goToWork()
+    // // }).then(value => {
+    // //     console.log(value);
+    // //     return iAmWorking()
+    // // }).then(value => {
+    // //     console.log(value);
+    // //     return haveLunch(60)
+    // // }).then(value => {
+    // //     console.log(value);
+    // //     return returnToWork()
+    // // }).then(value => {
+    // //     console.log(value);
+    // //     return goHome()
+    // // }).then(value => {
+    // //     console.log(value);
+    // //     return haveSupper()
+    // // }).then(value => {
+    // //     console.log(value);
+    // //     return goToBed()
+    // // }).then(value => {
+    // //     console.log(value);
+    // // });
+    // //
+    // // // ASYNC-AWAIT. MY DAY ON ASYNC_AWAIT
+    // async function myDay() {
+    //
+    //     console.log(await wakeUp(7));
+    //     console.log(await goToBathroom());
+    //     console.log(await haveBreakfast());
+    //     console.log(await goToWork());
+    //     console.log(await iAmWorking());
+    //     console.log(await haveLunch(79));
+    //     console.log(await returnToWork());
+    //     console.log(await goHome());
+    //     console.log(await haveSupper());
+    //     console.log(await goToBed());
+    // }
+    //
+    // myDay();
+
+
+</script>
