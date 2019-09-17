@@ -2,6 +2,7 @@
 
 function userCard(cardId) {
 
+    
     let card = {
         balance: 100,
         transactionLimit: 100,
