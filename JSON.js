@@ -23,7 +23,6 @@ console.log(name,age);
 user.name = 'Ivan';
 console.log(user);
 
-
 let arr = [1,2,'fdf',false,23,34,35,34];
 let  [one,two , ...spread]=arr;
 console.log(spread);
