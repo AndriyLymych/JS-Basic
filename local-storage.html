@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<p> Введіть текст в поля інпутів:</p>
+<textarea id="area" cols="30" rows="10" style="margin: 10px 10px" placeholder="enter text"></textarea>
+<p>Заповніть форми:</p>
+<form name="box" style="padding: 30px 10px">
+    <input type="text" name="text" placeholder="enter text">
+    <br>
+
+
+    <br>
+    <input type="email" name="mail" placeholder="enter mail">
+    <br>
+    <input type="range" mix="0" max="100" step="1" value="0" name="range">
+
+</form>
+<textarea id="areaHistory" cols="30" rows="10"></textarea>
+<button id="hisBtn">submit</button>
+<div>
+    <button id="back">back</button>
+    <button id="forward">forward</button>
+
+</div>
+</body>
+<script>
+    // - Дан textarea.
+    //     В него вводится текст.
+    //     Сделайте так, чтобы после захода на эту страницу через некоторое время, введенный текст остался в textarea.
+    //
+    let area = document.getElementById('area');
+    area.oninput = function () {
+        localStorage.setItem('value', JSON.stringify(area.value))
+
+    };
+    let getItem = localStorage.getItem('value');
+    area.value = JSON.parse(getItem);
+
+
+    // - Дана форма с инпутами, текстареа, чекбоксами, радио кнопочками, селектами и тп.
+    //     Пользователь вводит какие-то данные и закрывает страницу (не факт, что он заполнил всю форму).
+    // Сделайте так, чтобы при следующем заходе на страницу введенные им ранее данные стояли на своих местах.
+    //     Сделайте ваш скрипт как можно более универсальным.
+
+    let text = document.forms.box.text;
+
+
+    let mail = document.forms.box.mail;
+    let range = document.forms.box.range;
+
+    text.oninput = function () {
+        localStorage.setItem('text', JSON.stringify(text.value))
+
+    };
+    let itemText = localStorage.getItem('text');
+    text.value = JSON.parse(itemText);
+
+    mail.oninput = function () {
+        localStorage.setItem('mail', JSON.stringify(mail.value))
+    };
+    let mailItem = localStorage.getItem('mail');
+    mail.value = JSON.parse(mailItem);
+    range.oninput = function () {
+        localStorage.setItem('range', JSON.stringify(range.value))
+    };
+    let rangeItem = localStorage.getItem('range');
+    range.value = JSON.parse(rangeItem);
+
+    // -Дан текстареа.
+    //     В него можно ввести данные, затем поредактировать их, затем еще поредактировать.
+    //     Пусть текстареа хранит историю своих изменений (даже после перезагрузки страницы).
+    // Сверху над текстареа должны появится стрелочки, с помощью которых можно перемещаться по истории.
+    let areaHistory = document.getElementById('areaHistory');
+    let back = document.getElementById('back');
+    let forward = document.getElementById('forward');
+    let history =[];
+    let hisBtn = document.getElementById('hisBtn');
+    function addHistory() {
+        history.push(areaHistory.value);
+            localStorage.setItem('hist', JSON.stringify(history));
+
+    }
+    hisBtn.addEventListener('click',addHistory);
+    window.onload=function () {
+        for (let i = 0; i < 6; i++) {
+            let k = localStorage.getItem('hist');
+            let kpars = JSON.parse(k);
+            history.push(kpars[i]);
+            console.log(history);
+        }
+    };
+    let i=0;
+    let j;
+    forward.onclick=function () {
+        if(i<history.length){
+            areaHistory.value=history[i];
+            i=i+1;
+            j=i-1;
+        }
+        else if(i>=history.length){
+            i=0;
+            areaHistory.value=history[i];
+            i=i+1;
+            j=i-1;
+        }
+    };
+    back.onclick=function () {
+        if(j>0){
+            areaHistory.value=history[j];
+            j=j-1;
+            i=j+1;
+            console.log(j);
+        }
+        else if(j<=0){
+            j=history.length-1;
+            i=j;
+            areaHistory.value=history[j];
+        }
+    }
+
+</script>
+</html>
