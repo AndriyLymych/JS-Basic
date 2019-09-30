@@ -356,9 +356,9 @@
                 rowElement.appendChild(colsElement);
                 colsElement.innerText = text.value;
                 colsElement.ondblclick = function () {
-                    console.log('jj');
+               
                     let inputElement = document.createElement('input');
-                    console.log('hello');
+
                     inputElement.value = colsElement.innerText;
                     rowElement.replaceChild(inputElement, colsElement);
                     inputElement.focus();
@@ -433,7 +433,7 @@
         if (i < str.length) {
             setTimeout(() => {
                 typePar.innerText += str[i];
-                i++;
+                ++i;
                 typist(str, i)
             }, 1000);
 
@@ -446,7 +446,7 @@
 
     typeBtn.onclick = function () {
         typist(typeText.value, 0)
-    }
+    };
 
     // // 7 Напишите «Карусель» – ленту изображений, которую можно листать влево-вправо нажатием на стрелочки.
     let photo = document.getElementById('photo');
@@ -458,7 +458,7 @@
     let img4 = document.querySelector('.itemImg4');
     let img5 = document.querySelector('.itemImg5');
 
-
+    let i;
     leftBtn.addEventListener('click', () => {
 
         img1.style.transform += 'translate(800px)';
